@@ -42,7 +42,7 @@ When creating a display object you need to provide 3 arguments. Witch i2c contro
 initialized above), display address (usually 0x3C or 0x3D with ssd1306) and display size. This library defines 2
 available sizes Size::W128xH64 and Size::W128xH32 
 ```c++
-SSD1306LIB::SSD1306 display = SSD1306LIB::SSD1306(i2c0, 0x3D, SSD1306LIB::Size::W128xH64);
+pico_ssd1306::SSD1306 display = pico_ssd1306::SSD1306(i2c0, 0x3D, pico_ssd1306::Size::W128xH64);
 ```
 
 ## 3. A few words on how this works
@@ -61,7 +61,7 @@ section about write mode. tldr write mode decides whether a pixel is to be set o
 this example set pixel at x = 0 and y = 0 (top left corner) on
 ```c++
 //Create a new display object
-SSD1306LIB::SSD1306 display = SSD1306LIB::SSD1306(I2C_PORT, 0x3D, SSD1306LIB::Size::W128xH64);
+pico_ssd1306::SSD1306 display = pico_ssd1306::SSD1306(I2C_PORT, 0x3D, pico_ssd1306::Size::W128xH64);
 
 display.setPixel(0, 0);
 

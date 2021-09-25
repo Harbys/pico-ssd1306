@@ -5,19 +5,19 @@ FrameBuffer::FrameBuffer() {
 }
 
 void FrameBuffer::byteOR(int n, unsigned char byte) {
-    // return if index outside of 0 - buffer length - 1
+    // return if index outside 0 - buffer length - 1
     if (n > (FRAMEBUFFER_SIZE-1)) return;
     this->buffer[n] |= byte;
 }
 
 void FrameBuffer::byteAND(int n, unsigned char byte) {
-    // return if index outside of 0 - buffer length - 1
+    // return if index outside 0 - buffer length - 1
     if (n > (FRAMEBUFFER_SIZE-1)) return;
     this->buffer[n] &= byte;
 }
 
 void FrameBuffer::byteXOR(int n, unsigned char byte) {
-    // return if index outside of 0 - buffer length - 1
+    // return if index outside 0 - buffer length - 1
     if (n > (FRAMEBUFFER_SIZE-1)) return;
     this->buffer[n] ^= byte;
 }

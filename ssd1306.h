@@ -7,7 +7,7 @@
 #include "hardware/i2c.h"
 #include "frameBuffer/FrameBuffer.h"
 
-namespace SSD1306LIB {
+namespace pico_ssd1306 {
     /// Register addresses from datasheet
     enum REG_ADDRESSES : unsigned char{
         SSD1306_CONTRAST = 0x81,

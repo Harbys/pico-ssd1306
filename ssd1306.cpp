@@ -1,6 +1,6 @@
 #include "ssd1306.h"
 
-namespace SSD1306LIB {
+namespace pico_ssd1306 {
     SSD1306::SSD1306(i2c_inst *i2CInst, uint16_t Address, Size size) {
         // Set class instanced variables
         this->i2CInst = i2CInst;

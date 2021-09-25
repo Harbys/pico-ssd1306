@@ -1,7 +1,7 @@
 #include "ShapeRenderer.h"
 
-void SSD1306LIB::drawLine(SSD1306LIB::SSD1306 *ssd1306, uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
-                          SSD1306LIB::WriteMode mode) {
+void pico_ssd1306::drawLine(pico_ssd1306::SSD1306 *ssd1306, uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
+                            pico_ssd1306::WriteMode mode) {
     int x, y, dx, dy, dx0, dy0, px, py, xe, ye, i;
     dx = x1 - x0;
     dy = y1 - y0;
@@ -62,16 +62,16 @@ void SSD1306LIB::drawLine(SSD1306LIB::SSD1306 *ssd1306, uint8_t x0, uint8_t y0, 
     }
 }
 
-void SSD1306LIB::drawRect(SSD1306LIB::SSD1306 *ssd1306, uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end,
-                          SSD1306LIB::WriteMode mode) {
+void pico_ssd1306::drawRect(pico_ssd1306::SSD1306 *ssd1306, uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end,
+                            pico_ssd1306::WriteMode mode) {
     drawLine(ssd1306, x_start, y_start, x_end, y_start, mode);
     drawLine(ssd1306, x_start, y_end, x_end, y_end, mode);
     drawLine(ssd1306, x_start, y_start, x_start, y_end, mode);
     drawLine(ssd1306, x_end, y_start, x_end, y_end, mode);
 }
 
-void SSD1306LIB::fillRect(SSD1306LIB::SSD1306 *ssd1306, uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end,
-                          SSD1306LIB::WriteMode mode) {
+void pico_ssd1306::fillRect(pico_ssd1306::SSD1306 *ssd1306, uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end,
+                            pico_ssd1306::WriteMode mode) {
     for (uint8_t x = x_start; x <= x_end; x++) {
         for (uint8_t y = y_start; y <= y_end; y++) {
             ssd1306->setPixel(x, y, mode);
