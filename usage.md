@@ -144,3 +144,6 @@ will overlay the same image with 8 pixel to right image, producing:
 ![example2](images/ex4.png)
 
 This function can take an optional argument of write mode, this is same as in ```setPixel()```
+
+## 6. Additional Settings
+### Things like setting contrast, flipping the display etc. are all documented [here](https://ssd1306.harbys.me)

@@ -36,6 +36,14 @@ display.sendBuffer(); //Send buffer to device and show on screen
 ```
 ### Expected output:
 ![example1](images/ex1.png) 
+
+You may have noticed that this entire library is under pico_ssd1306 namespace to avoid conflicts, but if you don't have any
+conflicts and don't want to write ```pico_ssd1306::``` all the time just add 
+```c++
+using namespace pico_ssd1306;
+```
+to your file
+
 ## 3. Principles of operation
 See [usage explanation](usage.md) for detailed information on how to use core of the lib, but in short:
 * First Initialize i2c and pins for i2c communication
@@ -43,7 +51,13 @@ See [usage explanation](usage.md) for detailed information on how to use core of
 * Modify the buffer containing pixel data
 * Send buffer to display
 * Clear the buffer and repeat
-## 4. Additional Modules
+
+## 4. Pixel Addressing
+![pixel_addressing](images/ex5.png)
+
+same is true for 128x32 displays, then y range is 0-31
+
+## 5. Additional Modules
 This library comes with additional modules for shape rendering and text rendering to make your life easier
 ### Importing Shape Renderer
 ```c++
@@ -56,8 +70,8 @@ See: [Shape Renderer readme](shapeRenderer/readme.md) for usage and details
 ```
 See: [Text Renderer readme](textRenderer/readme.md) for usage and details
 
-## 5. Examples
+## 6. Examples
 See [examples](examples). Many of them have their own readmes. Many things are also explained in code comments.
 
-## 6. Documentation
-Documentation of all functions is here [doxygen](https://ssd1306.harbys.me)
+## 7. Documentation
+Documentation of all functions is [here](https://ssd1306.harbys.me)
