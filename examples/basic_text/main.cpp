@@ -1,6 +1,6 @@
 #include "pico/stdlib.h"
 #include "pico-ssd1306/ssd1306.h"
-#include "pico-ssd1306/shapeRenderer/ShapeRenderer.h"
+#include "pico-ssd1306/textRenderer/TextRenderer.h"
 #include "hardware/i2c.h"
 
 // Use the namespace for convenience
@@ -23,8 +23,16 @@ int main(){
     // Create a new display object at address 0x3D and size of 128x64
     SSD1306 display = SSD1306(i2c0, 0x3D, Size::W128xH64);
 
-    // Draw a line on display from 0, 0 to 127, 63
-    drawLine(&display, 0, 0 ,127, 63);
+    // Here we rotate the display by 180 degrees, so that it's not upside down from my perspective
+    // If your screen is upside down try setting it to 1 or 0
+    display.setOrientation(0);
+
+    // Draw text on display
+    // After passing a pointer to display, we need to tell the function what font and text to use
+    // Available fonts are listed in textRenderer's readme
+    // Last we tell this function where to anchor the text
+    // Anchor means top left of what we draw
+    drawText(&display, font_12x16, "TEST text", 0 ,0);
 
     // Send buffer to the display
     display.sendBuffer();

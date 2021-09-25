@@ -14,7 +14,7 @@
 ## Text Renderer Module
 | Link         | Description |
 |--------------|-------------|
-|              |             |
+|[basic_text](basic_text)| Drawing some sample text to the screen|
 
 ## How to build an example
 
