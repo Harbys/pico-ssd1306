@@ -29,7 +29,7 @@ cp (path_to_pico_sdk)/external/pico_sdk_import.cmake .
 ```
 * Set the PICO_SDK_PATH environment variable
 ```shell
-export export PICO_SDK_PATH="(path_to_pico_sdk)"
+export PICO_SDK_PATH="(path_to_pico_sdk)"
 ```
 * Create a build directory and enter it
 ```shell
