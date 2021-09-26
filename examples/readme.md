@@ -3,7 +3,7 @@
 ## Core library
 | Link         | Description |
 |--------------|-------------|
-|              |             |
+|[bitmap_image](bitmap_image)|Display a simple bitmap image|
 
 ## Shape Renderer Module
 | Link                 | Description |
