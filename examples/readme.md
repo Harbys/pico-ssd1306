@@ -4,6 +4,7 @@
 | Link         | Description |
 |--------------|-------------|
 |[bitmap_image](bitmap_image)|Display a simple bitmap image|
+|[falling_dots](falling_dots)|Animation of dots falling on screen|
 
 ## Shape Renderer Module
 | Link                 | Description |
