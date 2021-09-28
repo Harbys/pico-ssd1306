@@ -33,6 +33,10 @@ cp (path_to_pico_sdk)/external/pico_sdk_import.cmake .
 ```shell
 export PICO_SDK_PATH="(path_to_pico_sdk)"
 ```
+* Create a symlink to the whole library
+```shell
+ln -s ../../. pico-ssd1306
+```
 * Create a build directory and enter it
 ```shell
 mkdir build
@@ -40,6 +44,6 @@ cd build
 ```
 * Build
 ```shell
-cmake ..
+cmake .. && make
 ```
 * Copy the uf2 file to your pico
