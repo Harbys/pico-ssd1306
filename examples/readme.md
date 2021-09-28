@@ -5,6 +5,7 @@
 |--------------|-------------|
 |[bitmap_image](bitmap_image)|Display a simple bitmap image|
 |[falling_dots](falling_dots)|Animation of dots falling on screen|
+|[write_mode](write_mode)|Example showing differences between write modes|
 
 ## Shape Renderer Module
 | Link                 | Description |

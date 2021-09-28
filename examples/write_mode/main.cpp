@@ -1,6 +1,9 @@
 #include "pico/stdlib.h"
 #include "pico-ssd1306/ssd1306.h"
+#include "pico-ssd1306/shapeRenderer/ShapeRenderer.h"
 #include "hardware/i2c.h"
+
+#pragma ide diagnostic ignored "EndlessLoop"
 
 // Use the namespace for convenience
 using namespace pico_ssd1306;
@@ -26,7 +29,10 @@ int main() {
     // If your screen is upside down try setting it to 1 or 0
     display.setOrientation(0);
 
-    // Create a variable storing our bitmap image
+    // Fill left half of the screen
+    fillRect(&display, 0, 0, 63,63);
+
+    // Create a variable storing a bitmap image
     unsigned char image[] = {
             0b00000001, 0b10000000,
             0b00000001, 0b10000000,
@@ -46,10 +52,14 @@ int main() {
             0b00000001, 0b10000000
     };
 
-
-    // Add image to buffer with anchor at point x: 10, y:10 and image width: 16 and height:16
-    display.addBitmapImage(10, 10, 16, 16, image);
+    // To see this example at work play with WriteMode
+    // Add will turn pixels on regardless of their state
+    // Subtract will turn pixels off regardless of their state
+    // Invert will swap state of selected pixels
+    display.addBitmapImage(63-8, 31-8, 16, 16, image, WriteMode::INVERT);
 
     // Send buffer to the display
     display.sendBuffer();
+
+
 }
