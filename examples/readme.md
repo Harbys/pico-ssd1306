@@ -11,6 +11,7 @@
 | Link                 | Description |
 |----------------------|-------------|
 |[draw_line](draw_line)|Example of drawing a line across the screen|
+|[flag](flag)|Drawing a "flag" on your display. Shows how to use different shape renderers.|
 
 
 ## Text Renderer Module
