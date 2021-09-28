@@ -11,7 +11,7 @@
 /// This is explained in readme.md
 #define FRAMEBUFFER_SIZE 1024
 
-/// \bug Framebuffer class contains a pointer to buffer and functions for interacting with it
+/// \brief Framebuffer class contains a pointer to buffer and functions for interacting with it
 class FrameBuffer {
     unsigned char * buffer;
 public:
