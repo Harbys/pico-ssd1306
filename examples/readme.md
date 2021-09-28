@@ -18,6 +18,7 @@
 | Link         | Description |
 |--------------|-------------|
 |[basic_text](basic_text)| Drawing some sample text to the screen|
+|[text_advanced](text_advanced)| Drawing normal and rotated text|
 
 ## How to build an example
 
