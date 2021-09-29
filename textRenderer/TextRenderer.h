@@ -12,10 +12,11 @@
 
 namespace pico_ssd1306{
 
-    /// \enum deg0 - means no rotation
-    /// \enum deg 90 - means 90 deg rotation
+    /// \enum pico_ssd1306::Rotation
     enum class Rotation{
+        /// deg0 - means no rotation
         deg0,
+        /// deg 90 - means 90 deg rotation
         deg90,
     };
 

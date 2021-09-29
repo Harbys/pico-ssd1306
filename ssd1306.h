@@ -41,25 +41,26 @@ namespace pico_ssd1306 {
         SSD1306_SWITCHCAPVCC = 0x2,
     };
 
-    /// \enum Display size W128xH64
-    /// \enum Display size W128xH32
+    /// \enum pico_ssd1306::Size
     enum class Size {
+        /// Display size W128xH64
         W128xH64,
+        /// Display size W128xH32
         W128xH32
     };
 
-    /// \enum WriteMode::ADD sets pixel on regardless of its state
-    /// \enum WriteMode::SUBTRACT sets pixel off regardless of its state
-    /// \enum WriteMode::INVERT inverts pixel, so 1->0 or 0->1
+    /// \enum pico_ssd1306::WriteMode
     enum class WriteMode : const unsigned char{
-            ADD = 0,
-            SUBTRACT = 1,
-            INVERT = 2,
+        /// sets pixel on regardless of its state
+        ADD = 0,
+        /// sets pixel off regardless of its state
+        SUBTRACT = 1,
+        /// inverts pixel, so 1->0 or 0->1
+        INVERT = 2,
     };
 
-    ///
-    /// \class SSD1306 class represents i2c connection to display
-    ///
+    /// \class SSD1306 ssd1306.h "pico-ssd1306/ssd1306.h"
+    /// \brief SSD1306 class represents i2c connection to display
     class SSD1306 {
     private:
         i2c_inst *i2CInst;
