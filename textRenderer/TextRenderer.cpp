@@ -2,11 +2,12 @@
 
 namespace pico_ssd1306 {
 
-    void drawText(pico_ssd1306::SSD1306 *ssd1306, const unsigned char * font, const char * text, uint8_t anchor_x, uint8_t anchor_y, WriteMode mode, Rotation rotation) {
+    void drawText(pico_ssd1306::SSD1306 *ssd1306, const unsigned char *font, const char *text, uint8_t anchor_x,
+                  uint8_t anchor_y, WriteMode mode, Rotation rotation) {
         uint8_t font_width = font[0];
 
         uint16_t n = 0;
-        while (text[n] != '\0'){
+        while (text[n] != '\0') {
             switch (rotation) {
                 case Rotation::deg0:
                     drawChar(ssd1306, font, text[n], anchor_x + (n * font_width), anchor_y, mode, rotation);
@@ -20,9 +21,11 @@ namespace pico_ssd1306 {
         }
     }
 
-    void drawChar(pico_ssd1306::SSD1306 *ssd1306, const unsigned char * font, char c, uint8_t anchor_x, uint8_t anchor_y, WriteMode mode, Rotation rotation) {
+    void drawChar(pico_ssd1306::SSD1306 *ssd1306, const unsigned char *font, char c, uint8_t anchor_x, uint8_t anchor_y,
+                  WriteMode mode, Rotation rotation) {
 
-        if(c < 32 || c > 126) return;
+
+        if (c < 32) return;
 
         uint8_t font_width = font[0];
         uint8_t font_height = font[1];
@@ -31,9 +34,9 @@ namespace pico_ssd1306 {
 
         uint8_t b_seek = 0;
 
-        for (uint8_t x = 0; x < font_width; x++){
-            for(uint8_t y = 0; y < font_height; y++){
-                if (font[seek] >> b_seek & 0b00000001){
+        for (uint8_t x = 0; x < font_width; x++) {
+            for (uint8_t y = 0; y < font_height; y++) {
+                if (font[seek] >> b_seek & 0b00000001) {
                     switch (rotation) {
                         case Rotation::deg0:
                             ssd1306->setPixel(x + anchor_x, y + anchor_y, mode);
@@ -44,7 +47,7 @@ namespace pico_ssd1306 {
                     }
                 }
                 b_seek++;
-                if (b_seek == 8){
+                if (b_seek == 8) {
                     b_seek = 0;
                     seek++;
                 }

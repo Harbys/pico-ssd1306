@@ -30,7 +30,13 @@ This module comes with 4 fonts to choose from
 * font_12x16 - 12px wide, 16px high font
 * font_16x32 - 16px wide, 32px high font
 
-Note that this module only supports ascii characters 32 - 126, so all printable characters from base ascii set.
+Basic fonts support basic ASCII set chars (32-127), if you want to extended ASCII define
+```c++
+#define SSD1306_ASCII_FULL
+```
+at the top of your file
+
+#### Note that using extended ASCII range increases project size
 
 ### Creating your own fonts
 doing so is not that hard
