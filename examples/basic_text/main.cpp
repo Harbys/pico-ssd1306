@@ -28,11 +28,17 @@ int main(){
     display.setOrientation(0);
 
     // Draw text on display
+    double placeHolder {123.5};
     // After passing a pointer to display, we need to tell the function what font and text to use
     // Available fonts are listed in textRenderer's readme
     // Last we tell this function where to anchor the text
     // Anchor means top left of what we draw
-    drawText(&display, font_12x16, "TEST text", 0 ,0);
+    // Examples of drawText, drawChar and drawDouble
+    drawText(&display, font_12x16, "TEST", 0 ,0);
+    drawText(&display, font_12x16, "text", 0 ,15);
+    drawChar(&display, font_12x16, 76, 0 ,30);
+    drawDouble(&display, font_12x16, 1.1, 1, 15, 30);
+    drawDouble(&display, font_12x16, placeHolder, 1, 15, 45);
 
     // Send buffer to the display
     display.sendBuffer();
