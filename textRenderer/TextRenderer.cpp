@@ -4,6 +4,8 @@ namespace pico_ssd1306 {
 
     void drawText(pico_ssd1306::SSD1306 *ssd1306, const unsigned char *font, const char *text, uint8_t anchor_x,
                   uint8_t anchor_y, WriteMode mode, Rotation rotation) {
+        if(!ssd1306 || !font || !text) return;
+
         uint8_t font_width = font[0];
 
         uint16_t n = 0;
@@ -23,9 +25,7 @@ namespace pico_ssd1306 {
 
     void drawChar(pico_ssd1306::SSD1306 *ssd1306, const unsigned char *font, char c, uint8_t anchor_x, uint8_t anchor_y,
                   WriteMode mode, Rotation rotation) {
-
-
-        if (c < 32) return;
+        if(!ssd1306 || !font || c < 32) return;
 
         uint8_t font_width = font[0];
         uint8_t font_height = font[1];
