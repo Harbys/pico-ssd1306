@@ -16,6 +16,9 @@ public:
     /// Constructs frame buffer and allocates memory for buffer
     FrameBuffer();
 
+    /// Destroys frame buffer and frees buffer memory
+    ~FrameBuffer();
+
     /// \brief Performs OR logical operation on selected and provided byte
     ///
     /// ex. if byte in buffer at position n is 0b10001111 and provided byte is 0b11110000 the buffer at position n becomes 0b11111111
