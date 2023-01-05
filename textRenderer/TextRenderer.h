@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef SSD1306_TEXTRENDERER_H
 #define SSD1306_TEXTRENDERER_H
 

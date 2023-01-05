@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef SSD1306_FRAMEBUFFER_H
 #define SSD1306_FRAMEBUFFER_H
 
