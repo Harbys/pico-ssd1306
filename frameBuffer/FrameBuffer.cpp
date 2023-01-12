@@ -4,6 +4,10 @@ FrameBuffer::FrameBuffer() {
     this->buffer = new unsigned char[FRAMEBUFFER_SIZE];
 }
 
+FrameBuffer::~FrameBuffer() {
+    delete[] this->buffer;
+}
+
 void FrameBuffer::byteOR(int n, unsigned char byte) {
     // return if index outside 0 - buffer length - 1
     if (n > (FRAMEBUFFER_SIZE-1)) return;
@@ -24,6 +28,8 @@ void FrameBuffer::byteXOR(int n, unsigned char byte) {
 
 
 void FrameBuffer::setBuffer(unsigned char *new_buffer) {
+    // free buffer memory to prevent memory leak
+    delete[] this->buffer;
     this->buffer = new_buffer;
 }
 

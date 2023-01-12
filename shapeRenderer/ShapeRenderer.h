@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef SSD1306_SHAPERENDERER_H
 #define SSD1306_SHAPERENDERER_H
 

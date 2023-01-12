@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef SSD1306_FRAMEBUFFER_H
 #define SSD1306_FRAMEBUFFER_H
 
@@ -17,6 +15,9 @@ class FrameBuffer {
 public:
     /// Constructs frame buffer and allocates memory for buffer
     FrameBuffer();
+
+    /// Destroys frame buffer and frees buffer memory
+    ~FrameBuffer();
 
     /// \brief Performs OR logical operation on selected and provided byte
     ///
