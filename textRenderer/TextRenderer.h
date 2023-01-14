@@ -35,6 +35,19 @@ namespace pico_ssd1306{
     /// \param mode - mode describes setting behavior. See WriteMode doc for more information
     /// \param rotation - either rotates the text by 90 deg or leaves it unrotated
     void drawText(pico_ssd1306::SSD1306 *ssd1306, const unsigned char * font, const char * text, uint8_t anchor_x, uint8_t anchor_y, WriteMode mode = WriteMode::ADD, Rotation rotation = Rotation::deg0);
+
+    /// \brief Draws number on screen
+    /// \param ssd1306 - pointer to a SSD1306 object aka initialised display.
+    /// \param font - pointer to a font data array.
+    /// \param number - number to be drawn.
+    /// \param scale - number of digits after the decimal place.
+    /// \param anchor_x, anchor_y - coordinates setting where to put the text.
+    /// \param mode - mode describes setting behavior. See WriteMode doc for more information.
+    /// \param rotation - either rotates the text by 90 deg or leaves it unrotated.
+
+    void drawDouble(pico_ssd1306::SSD1306 *ssd1306, const unsigned char * font, double number, uint8_t scale, uint8_t anchor_x, uint8_t anchor_y, WriteMode mode = WriteMode::ADD, Rotation rotation = Rotation::deg0);
+
+
 }
 
 #endif //SSD1306_TEXTRENDERER_H
