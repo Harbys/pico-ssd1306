@@ -15,9 +15,6 @@ namespace pico_ssd1306 {
             this->height = 64;
         }
 
-        // create a frame buffer
-        this->frameBuffer = FrameBuffer();
-
         // display is not inverted by default
         this->inverted = false;
 
