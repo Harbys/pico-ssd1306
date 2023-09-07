@@ -13,8 +13,6 @@
 * Import library in your code
   ```c++
   #include "pico-ssd1306/ssd1306.h"
-  // You also need i2c library to communicate with the display
-  #include "hardware/i2c.h"
   ```
 ## 2. Basic usage
 ```c++
