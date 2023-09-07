@@ -5,9 +5,11 @@
 #include "hardware/i2c.h"
 #include "frameBuffer/FrameBuffer.h"
 
-namespace pico_ssd1306 {
+namespace pico_ssd1306
+{
     /// Register addresses from datasheet
-    enum REG_ADDRESSES : unsigned char{
+    enum REG_ADDRESSES : unsigned char
+    {
         SSD1306_CONTRAST = 0x81,
         SSD1306_DISPLAYALL_ON_RESUME = 0xA4,
         SSD1306_DISPLAYALL_ON = 0xA5,
@@ -40,7 +42,8 @@ namespace pico_ssd1306 {
     };
 
     /// \enum pico_ssd1306::Size
-    enum class Size {
+    enum class Size
+    {
         /// Display size W128xH64
         W128xH64,
         /// Display size W128xH32
@@ -48,7 +51,8 @@ namespace pico_ssd1306 {
     };
 
     /// \enum pico_ssd1306::WriteMode
-    enum class WriteMode : const unsigned char{
+    enum class WriteMode : const unsigned char
+    {
         /// sets pixel on regardless of its state
         ADD = 0,
         /// sets pixel off regardless of its state
@@ -59,7 +63,8 @@ namespace pico_ssd1306 {
 
     /// \class SSD1306 ssd1306.h "pico-ssd1306/ssd1306.h"
     /// \brief SSD1306 class represents i2c connection to display
-    class SSD1306 {
+    class SSD1306
+    {
     private:
         i2c_inst *i2CInst;
         uint16_t address;
@@ -111,7 +116,6 @@ namespace pico_ssd1306 {
         /// \param orientation - 0 for not flipped, 1 for flipped display
         void setOrientation(bool orientation);
 
-
         /// \brief Clears frame buffer aka set all bytes to 0
         void clear();
 
@@ -121,8 +125,14 @@ namespace pico_ssd1306 {
         /// \brief Sets display contrast according to ssd1306 documentation
         /// \param contrast - accepted values of 0 to 255 to set the contrast
         void setContrast(unsigned char contrast);
+
+        /// \brief Turns display off
+        void turnOff();
+
+        /// \brief Turns display on
+        void turnOn();
     };
 
 }
 
-#endif //SSD1306_SSD1306_H
+#endif // SSD1306_SSD1306_H
