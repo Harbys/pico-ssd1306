@@ -176,4 +176,12 @@ namespace pico_ssd1306 {
         this->frameBuffer.setBuffer(buffer);
     }
 
+    void SSD1306::turnOff() {
+        this->cmd(SSD1306_DISPLAY_OFF);
+    }
+
+    void SSD1306::turnOn() {
+        this->cmd(SSD1306_DISPLAY_ON);
+    }
+
 }
