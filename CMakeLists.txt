@@ -22,8 +22,3 @@ target_sources(pico-ssd1306 INTERFACE
 
 target_include_directories(pico-ssd1306 INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 
-#target_link_libraries(pico_ssd1306
-#        ssd1306_textRenderer
-#        hardware_i2c
-#        pico_stdlib
-#        )
