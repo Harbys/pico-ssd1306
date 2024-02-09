@@ -6,7 +6,8 @@
   ```cmake
     add_subdirectory(pico-ssd1306)
     target_link_libraries(${PROJECT_NAME}
-    pico_ssd1306)
+        pico_ssd1306
+    )
   ```
 * Import library in your code
   ```c++
