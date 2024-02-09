@@ -22,3 +22,7 @@ target_sources(pico-ssd1306 INTERFACE
 
 target_include_directories(pico-ssd1306 INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 
+# Link to pico_stdlib (gpio, time, etc. functions)
+target_link_libraries(${PROJECT_NAME} INTERFACE
+    hardware_i2c
+)
