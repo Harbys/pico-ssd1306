@@ -6,9 +6,7 @@
   ```cmake
     add_subdirectory(pico-ssd1306)
     target_link_libraries(your_project_name
-    pico_ssd1306
-    # you will also need hardware i2c library for communication with the display
-    hardware_i2c)
+    pico_ssd1306)
   ```
 * Import library in your code
   ```c++
