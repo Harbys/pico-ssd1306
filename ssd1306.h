@@ -82,6 +82,9 @@ namespace pico_ssd1306 {
         /// \param size - display size. Acceptable values W128xH32 or W128xH64
         SSD1306(i2c_inst *i2CInst, uint16_t Address, Size size);
 
+        /// \brief Initialize the class instance after calling constructor
+        void begin();
+
         /// \brief Set pixel operates frame buffer
         /// x is the x position of pixel you want to change. values 0 - 127
         /// y is the y position of pixel you want to change. values 0 - 31 or 0 - 63

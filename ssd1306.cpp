@@ -17,7 +17,9 @@ namespace pico_ssd1306 {
 
         // display is not inverted by default
         this->inverted = false;
+    }
 
+    void SSD1306::begin() {
         // this is a list of setup commands for the display
         uint8_t setup[] = {
                 SSD1306_DISPLAY_OFF,

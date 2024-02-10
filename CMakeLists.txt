@@ -9,20 +9,22 @@ project(pico-ssd1306
     DESCRIPTION "SSD1306 Library for RP2040"
 )
 
-add_library(pico-ssd1306 INTERFACE
-        ssd1306.cpp
-        frameBuffer/FrameBuffer.cpp
-        shapeRenderer/ShapeRenderer.cpp)
+add_library(${PROJECT_NAME} INTERFACE
+    ssd1306.cpp
+    frameBuffer/FrameBuffer.cpp
+    shapeRenderer/ShapeRenderer.cpp)
 
 add_subdirectory(textRenderer)
 
-target_sources(pico-ssd1306 INTERFACE
+target_sources(${PROJECT_NAME} INTERFACE
         ${CMAKE_CURRENT_LIST_DIR}/ssd1306.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/framebuffer/framebuffer.cpp
 )
 
-target_include_directories(pico-ssd1306 INTERFACE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 
 # Link to pico_stdlib (gpio, time, etc. functions)
 target_link_libraries(${PROJECT_NAME} INTERFACE
     hardware_i2c
+    ssd1306_textRenderer
 )
