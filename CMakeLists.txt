@@ -19,6 +19,7 @@ add_subdirectory(textRenderer)
 target_sources(${PROJECT_NAME} INTERFACE
         ${CMAKE_CURRENT_LIST_DIR}/ssd1306.cpp
         ${CMAKE_CURRENT_LIST_DIR}/framebuffer/framebuffer.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/shapeRenderer/ShapeRenderer.cpp
 )
 
 target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_LIST_DIR})
