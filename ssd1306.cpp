@@ -168,7 +168,6 @@ namespace pico_ssd1306 {
         i2c_write_blocking(this->i2CInst, this->address, data, 2, false);
     }
 
-
     void SSD1306::setContrast(unsigned char contrast) {
         this->cmd(SSD1306_CONTRAST);
         this->cmd(contrast);
