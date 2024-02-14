@@ -17,7 +17,9 @@ namespace pico_ssd1306 {
 
         // display is not inverted by default
         this->inverted = false;
+    }
 
+    void SSD1306::begin() {
         // this is a list of setup commands for the display
         uint8_t setup[] = {
                 SSD1306_DISPLAY_OFF,
@@ -165,7 +167,6 @@ namespace pico_ssd1306 {
         uint8_t data[2] = {0x00, command};
         i2c_write_blocking(this->i2CInst, this->address, data, 2, false);
     }
-
 
     void SSD1306::setContrast(unsigned char contrast) {
         this->cmd(SSD1306_CONTRAST);
