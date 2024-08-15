@@ -24,7 +24,7 @@ gpio_pull_up(I2C_PIN_SDA);
 gpio_pull_up(I2C_PIN_SCL);
 
 //Create a new display object
-pico_ssd1306::SSD1306 display = pico_ssd1306::SSD1306(I2C_PORT, 0x3D, pico_ssd1306::Size::W128xH64);
+pico_ssd1306::SSD1306 display(I2C_PORT, 0x3D, pico_ssd1306::Size::W128xH64);
 
 //create a vertical line on x: 64 y:0-63
 for (int y = 0; y < 64; y++){

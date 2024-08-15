@@ -82,6 +82,13 @@ namespace pico_ssd1306 {
         /// \param size - display size. Acceptable values W128xH32 or W128xH64
         SSD1306(i2c_inst *i2CInst, uint16_t Address, Size size);
 
+#if __cplusplus >= 201103L
+	/// \brief SSD1306 constructor with implied standard address.
+        /// \param i2CInst - i2c instance. Either i2c0 or i2c1
+        /// \param size - display size. Acceptable values W128xH32 or W128xH64
+        SSD1306(i2c_inst *i2CInst, Size size) : SSD1306(i2CInst, size == Size::W128xH32 ? 0x3C : 0x3D, size) { }
+#endif
+
         /// \brief Set pixel operates frame buffer
         /// x is the x position of pixel you want to change. values 0 - 127
         /// y is the y position of pixel you want to change. values 0 - 31 or 0 - 63
