@@ -37,6 +37,9 @@ namespace pico_ssd1306 {
         SSD1306_CHARGEPUMP = 0x8D,
         SSD1306_EXTERNALVCC = 0x1,
         SSD1306_SWITCHCAPVCC = 0x2,
+        SSD1306_HORIZ_SCROLL_RIGHT = 0x26,
+        SSD1306_HORIZ_SCROLL_LEFT = 0x27,
+        SSD1306_SET_SCROLL = 0x2E
     };
 
     /// \enum pico_ssd1306::Size
@@ -48,13 +51,19 @@ namespace pico_ssd1306 {
     };
 
     /// \enum pico_ssd1306::WriteMode
-    enum class WriteMode : const unsigned char{
+    enum class WriteMode : const unsigned char {
         /// sets pixel on regardless of its state
         ADD = 0,
         /// sets pixel off regardless of its state
         SUBTRACT = 1,
         /// inverts pixel, so 1->0 or 0->1
         INVERT = 2,
+    };
+
+    /// \enum pico_ssd1306::ScrollDirection
+    enum class ScrollDirection : const unsigned char {
+        Left,
+        Right
     };
 
     /// \class SSD1306 ssd1306.h "pico-ssd1306/ssd1306.h"
@@ -127,8 +136,17 @@ namespace pico_ssd1306 {
 
         /// \brief Turns display on
         void turnOn();
-    };
 
+        /// \brief Enables or disables scrolling
+        /// \param scrollDirection - direction of scrolling. Left or right
+        /// \param shouldScroll - true to enable scrolling, false to disable scrolling
+        /// \param startPage - page to start scrolling from. Valid values are 0 to 7
+        /// \param endPage - page to end scrolling at. Valid values are 0 to 7 and must be greater than or equal to startPage
+        /// \param timeInterval - time interval between each scroll step. Accepted values 0x00 to 0x07
+        /// \return true if parameters are valid and scrolling was set, false if parameters were invalid
+        bool setHorizontalScroll(ScrollDirection scrollDirection, bool shouldScroll = true, uint8_t startPage = 0,
+                                 uint8_t endPage = 7,uint8_t timeInterval = 0x00);
+    };
 }
 
 #endif //SSD1306_SSD1306_H

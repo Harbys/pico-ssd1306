@@ -20,42 +20,42 @@ namespace pico_ssd1306 {
 
         // this is a list of setup commands for the display
         uint8_t setup[] = {
-                SSD1306_DISPLAY_OFF,
-                SSD1306_LOWCOLUMN,
-                SSD1306_HIGHCOLUMN,
-                SSD1306_STARTLINE,
+            SSD1306_DISPLAY_OFF,
+            SSD1306_LOWCOLUMN,
+            SSD1306_HIGHCOLUMN,
+            SSD1306_STARTLINE,
 
-                SSD1306_MEMORYMODE,
-                SSD1306_MEMORYMODE_HORZONTAL,
+            SSD1306_MEMORYMODE,
+            SSD1306_MEMORYMODE_HORZONTAL,
 
-                SSD1306_CONTRAST,
-                0xFF,
+            SSD1306_CONTRAST,
+            0xFF,
 
-                SSD1306_INVERTED_OFF,
+            SSD1306_INVERTED_OFF,
 
-                SSD1306_MULTIPLEX,
-                63,
+            SSD1306_MULTIPLEX,
+            63,
 
-                SSD1306_DISPLAYOFFSET,
-                0x00,
+            SSD1306_DISPLAYOFFSET,
+            0x00,
 
-                SSD1306_DISPLAYCLOCKDIV,
-                0x80,
+            SSD1306_DISPLAYCLOCKDIV,
+            0x80,
 
-                SSD1306_PRECHARGE,
-                0x22,
+            SSD1306_PRECHARGE,
+            0x22,
 
-                SSD1306_COMPINS,
-                0x12,
+            SSD1306_COMPINS,
+            0x12,
 
-                SSD1306_VCOMDETECT,
-                0x40,
+            SSD1306_VCOMDETECT,
+            0x40,
 
-                SSD1306_CHARGEPUMP,
-                0x14,
+            SSD1306_CHARGEPUMP,
+            0x14,
 
-                SSD1306_DISPLAYALL_ON_RESUME,
-                SSD1306_DISPLAY_ON
+            SSD1306_DISPLAYALL_ON_RESUME,
+            SSD1306_DISPLAY_ON
         };
 
         // send each one of the setup commands
@@ -166,7 +166,6 @@ namespace pico_ssd1306 {
         i2c_write_blocking(this->i2CInst, this->address, data, 2, false);
     }
 
-
     void SSD1306::setContrast(unsigned char contrast) {
         this->cmd(SSD1306_CONTRAST);
         this->cmd(contrast);
@@ -184,4 +183,26 @@ namespace pico_ssd1306 {
         this->cmd(SSD1306_DISPLAY_ON);
     }
 
+    bool SSD1306::setHorizontalScroll(ScrollDirection scrollDirection, bool shouldScroll, uint8_t startPage, uint8_t endPage, uint8_t timeInterval) {
+        uint8_t scrollCommand = (scrollDirection == ScrollDirection::Left) ? SSD1306_HORIZ_SCROLL_LEFT : SSD1306_HORIZ_SCROLL_RIGHT;
+
+        if (startPage > 7 || endPage > 7 || endPage < startPage || timeInterval > 0x07) return false;
+
+        uint8_t commands[] = {
+            scrollCommand,
+            0x00, // dummy byte
+            startPage, // start page 0
+            timeInterval, // time interval
+            endPage, // end page
+            0x00, // dummy byte
+            0xFF, // dummy byte
+            static_cast<uint8_t>(SSD1306_SET_SCROLL | (shouldScroll ? 1 : 0)) // Start/stop scrolling
+        };
+
+        for (uint8_t &command: commands) {
+            this->cmd(command);
+        }
+
+        return true;
+    }
 }
